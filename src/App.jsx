@@ -6,7 +6,7 @@ export default function App() {
   return (
     <main>
       React ⚛️ + Vite ⚡ + Replit 🌀
-      <Main name = "suka blyat"/>
+      <Main name = "ipi" age = {10}/>
     </main>
   )
 }

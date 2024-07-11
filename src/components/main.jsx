@@ -1,30 +1,22 @@
 import React from "react"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
-export default class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count : 0
+export default function Main(props) {
+  const [name, setName] = useState("")
+  const [age, setAge] = useState(0)
+
+  useEffect(() => {
+    if (name === props.name) {
+      setAge(props.age)
     }
-    this.updateState = this.updateState.bind(this);
-  }
-  
-  updateState() {
-    this.setState({
-      count : this.state.count + 1
-    })
-  }
-  render() {
     
-    
-    
-    
-    return (
-      <div>
-        <button onClick={this.updateState}>Click me</button>
-        <p>You clicked {this.state.count} times</p>
-      </div>
-    );
-  }
+  }, [name])
+
+  return (
+    <>
+      <p>hi {name}</p>
+      <h2>umur : {age}</h2>
+      <button onClick = {() => setName(props.name)}>Click</button>
+  </>
+  )
 }
